@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>GameMaster</title>
+</h:head>
+<h:body>
+	<!--  Navigation -->
+	<h:panelGroup layout="block" styleClass="wrapper" id="wrapper">
+		<ui:include src="/WEB-INF/menu.xhtml" />
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<h:panelGroup layout="block" styleClass="page-wrapper"
+			id="page-wrapper">
+			<h:panelGroup layout="block" styleClass="col-lg-12" id="col-lg-12">
+				<h1 class="page-header">Jogos</h1>
+				<h:form id="Formulario">
+					<h:panelGroup layout="block" styleClass="form-group">
+							<h:outputLabel value="Escolha o Console" />
+							<h:selectOneMenu styleClass="form-control"
+								value="${jogoMB.consoleAtual}"
+								converter="simpleIndexConverter">
+								<f:selectItems value="${consoleMB.listaPesquisa}" var="c"
+									itemLabel="#{c.titulo}" />
+							</h:selectOneMenu>
+							<br />
+							<h:commandButton styleClass="btn btn-success btn-block"
+								value="Avançar"	action="#{jogoMB.pesquisar}" />
+						</h:panelGroup>
+				</h:form>
+			</h:panelGroup>
+			<br></br>
+		</h:panelGroup>
+		<div class="footer">
+			<ui:insert name="footer">
+				<ui:include src="/WEB-INF/back.xhtml" name="footer" />
+			</ui:insert>
+		</div>
+	</h:panelGroup>
+	<!-- /#wrapper -->
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<!-- Custom CSS -->
+	<link href="css/simple-sidebar.css" rel="stylesheet"></link>
+
+</h:body>
+</html>

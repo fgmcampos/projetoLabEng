@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>GameMaster</title>
+</h:head>
+<h:body>
+	<!--  Navigation -->
+	<h:panelGroup layout="block" styleClass="wrapper" id="wrapper">
+		<ui:include src="/WEB-INF/menu.xhtml" />
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<h:panelGroup layout="block" styleClass="page-wrapper"
+			id="page-wrapper">
+			<h:form id="Formulario">
+				<h:panelGroup layout="block" styleClass="col-lg-12" id="col-lg-12">
+					<h1 class="page-header">Dicas</h1>
+
+					<br />
+					<h:panelGrid rendered="#{not empty dicaMB.listaPesquisa}">
+						<h:dataTable layout="block"
+							styleClass="table table-responsive table-striped table-bordered table-hover"
+							value="#{dicaMB.listaPesquisa}" var="dica" border="1">
+							<h:column>#{dica.id}
+						<f:facet name="header">Id</f:facet>
+							</h:column>
+							<h:column>#{dica.titulo}
+						<f:facet name="header">Titulo</f:facet>
+							</h:column>
+							<h:column>#{dica.descr}
+								<f:facet name="header">Descrição</f:facet>
+							</h:column>
+							<h:column>#{dica.jogo.titulo}
+								<f:facet name="header">Jogo</f:facet>
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{dicaMB.editar ( dica )}">Editar </h:commandLink>
+								<h:commandLink action="#{dicaMB.excluir( dica )}">Remover</h:commandLink>
+								<f:facet name="header">Ações</f:facet>
+							</h:column>
+						</h:dataTable>
+					</h:panelGrid>
+				</h:panelGroup>
+				<br></br>
+				<h:commandButton value="Nova Dica" styleClass="btn btn-success"
+					action="new_dica?faces-redirect=true" />
+			</h:form>
+		</h:panelGroup>
+		<div class="footer">
+			<ui:insert name="footer">
+				<ui:include src="/WEB-INF/back.xhtml" name="footer" />
+			</ui:insert>
+		</div>
+	</h:panelGroup>
+	<!-- /#wrapper -->
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<!-- Custom CSS -->
+	<link href="css/simple-sidebar.css" rel="stylesheet"></link>
+
+</h:body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>GameMaster</title>
+</h:head>
+<h:body>
+	<!--  Navigation -->
+	<h:panelGroup layout="block" styleClass="wrapper" id="wrapper">
+		<ui:include src="/WEB-INF/menu.xhtml" />
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<h:panelGroup layout="block" styleClass="page-wrapper"
+			id="page-wrapper">
+				<h:panelGroup layout="block" styleClass="col-lg-12" id="col-lg-12">
+					<h1 class="page-header">Sobre</h1>
+					<h:graphicImage styleClass="img-responsive" value="img/sobre.png" />
+					<p>Este é o Game Master, um sistema de gamers para gamers. Aqui você pode organizar sua coleção de jogos, criar jogatinas e inserir dicas. <br>Desenvolvido por: Felipe Gomes Moreira Campos</br> </p>
+					<p>
+						Acessando pelo celular? Use o botão abaixo para acessar ou esconder o menu lateral.
+					</p>
+				</h:panelGroup>
+			</h:panelGroup>
+			<div class="footer">
+            <ui:insert name="footer">
+                <ui:include src="/WEB-INF/back.xhtml" name="footer"/>
+            </ui:insert>
+        </div>
+</h:panelGroup>
+
+	<!-- /#wrapper -->
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+
+	<!-- Custom CSS -->
+	<link href="css/simple-sidebar.css" rel="stylesheet"></link>
+
+       </h:body>
+</html>
